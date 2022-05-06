@@ -14,8 +14,12 @@ jobs:
         run: |
           echo "Checking commits via $COMMITS_URL"
 
-          if [[ $(curl $COMMITS_URL) =~ ."\"message\": \"fix".* ]]; then
-            echo "fix commit detected"
+          if [[ $(curl $COMMITS_URL) =~ ."\"message\": \"fix".* ]]
+          then
+            echo "Fix commit detected - continue to post comment"
+          else
+            echo "No fix commit detected - succesful exit"
+            exit 0
           fi
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
