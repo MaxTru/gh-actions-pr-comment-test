@@ -9,6 +9,7 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
+          token: ${{ github.token }}
           issue-number: ${{ github.event.number }}
           body: |
             A new PR was created!
