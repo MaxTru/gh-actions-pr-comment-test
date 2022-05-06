@@ -8,10 +8,15 @@ jobs:
   comment-on-fix-to-develop:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      - name: Check for fix commits
         env:
-          GITHUB_CONTEXT: ${{ github.event.pull_request.commits_url }}
-        run: echo "$GITHUB_CONTEXT"
+          COMMITS_URL: ${{ github.event.pull_request.commits_url }}
+        run: |
+          echo "Checking commits via $COMMITS_URL"
+
+          if [[ $(curl $COMMITS_URL) =~ ."\"message\": \"fix".* ]]; then
+            echo "fix commit detected"
+          fi
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
