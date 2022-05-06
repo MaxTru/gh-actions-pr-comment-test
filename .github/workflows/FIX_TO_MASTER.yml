@@ -1,8 +1,9 @@
 name: COMMENT_DEVELOP_FIX
 on:
-  pull_request_target:
-      branches:
-        - develop
+  pull_request:
+    types: [open, reopen, edit]
+    branches:
+      - develop
 permissions:
   pull-requests: write
 jobs:
