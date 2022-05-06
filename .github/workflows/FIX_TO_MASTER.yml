@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print commits
-        run: echo "The commit messages are ${{ github.event.commits }}"
+        run: echo "The commit messages are ${{ github.event.number }} ${{ github.event.commits }}"
       - name: Print head commit
         run: echo "The head commit message is ${{ github.event.head_commit.message }}"
       - name: Create comment
