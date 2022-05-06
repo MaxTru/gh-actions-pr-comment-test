@@ -1,0 +1,15 @@
+name: FIX_TO_MASTER
+on:
+  pull_request:
+    types: [opened, reopened, edited]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.number }}
+          body: |
+            A new PR was created!
+          reactions: '+1'
