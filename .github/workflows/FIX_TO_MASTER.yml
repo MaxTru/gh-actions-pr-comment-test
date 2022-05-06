@@ -1,4 +1,4 @@
-name: COMMENT_ON_FIX_TO_DEVELOP
+name: COMMENT_DEVELOP_FIX
 on:
   pull_request:
     types: [opened, reopened]
