@@ -16,12 +16,12 @@ jobs:
 
           if [[ $(curl $COMMITS_URL) =~ ."\"message\": \"fix".* ]]
           then
-            echo "Fix commit detected - continue to post comment"
+            echo "{FIX_COMMITS_PRESENT}={true}" >> $GITHUB_ENV
           else
-            echo "No fix commit detected - exit"
-            exit 1
+            echo "{FIX_COMMITS_PRESENT}={false}" >> $GITHUB_ENV
           fi
       - name: Create comment
+        if: $FIX_COMMITS_PRESENT == 'true'
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.number }}
