@@ -4,6 +4,7 @@ on:
     types:
       - opened
       - reopened
+  pull_request_target:
 permissions:
   pull-requests: write
 jobs:
