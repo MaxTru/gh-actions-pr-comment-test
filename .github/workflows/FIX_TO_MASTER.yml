@@ -8,6 +8,7 @@ jobs:
   comment-on-fix-to-develop:
     if: ${{ github.base_ref == 'develop' }}
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
