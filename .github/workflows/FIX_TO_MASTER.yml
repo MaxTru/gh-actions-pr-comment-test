@@ -5,7 +5,7 @@ on:
 permissions:
   pull-requests: write
 jobs:
-  check-bats-version:
+  check-target-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Create comment
