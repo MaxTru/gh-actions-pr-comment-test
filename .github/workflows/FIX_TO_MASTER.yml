@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Print commits
         run: echo "The commit messages are ${{ github.event.commits }}"
+      - name: Print head commit
+        run: echo "The head commit message is ${{ github.event.head_commit.message }}"
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
