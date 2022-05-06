@@ -9,6 +9,8 @@ jobs:
   comment-on-fix-to-develop:
     runs-on: ubuntu-latest
     steps:
+      - name: Print commits
+        run: echo "The commit messages are ${{ github.event.commits }}"
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
