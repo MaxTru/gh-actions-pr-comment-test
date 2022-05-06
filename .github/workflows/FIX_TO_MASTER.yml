@@ -5,6 +5,7 @@ on:
       - develop
 permissions:
   pull-requests: write
+  contents: read
 jobs:
   comment-on-fix-to-develop:
     runs-on: ubuntu-latest
