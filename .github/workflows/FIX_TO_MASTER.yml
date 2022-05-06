@@ -1,11 +1,11 @@
-name: FIX_TO_MASTER
+name: COMMENT_ON_FIX_TO_DEVELOP
 on:
   pull_request:
     types: [opened, reopened]
 permissions:
   pull-requests: write
 jobs:
-  check-target-branch:
+  comment-on-fix-to-develop:
     if: ${{ github.base_ref == 'develop' }}
     runs-on: ubuntu-latest
     steps:
