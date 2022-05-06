@@ -9,11 +9,25 @@ jobs:
   comment-on-fix-to-develop:
     runs-on: ubuntu-latest
     steps:
-      - name: Check for fix commits
-        uses: gsactions/commit-message-checker@v1
-        with:
-          pattern: '^fix'
-          error: 'Fixing commit discovered'
+      - name: Expose git commit data
+        uses: rlespinasse/git-commit-data-action@v1
+      - name: Print git commit data
+        run: |
+          echo "Get commit info"
+          echo " - ${{ env.GIT_COMMIT_SHA }}"
+          echo " - ${{ env.GIT_COMMIT_SHORT_SHA }}"
+          echo "Get author info"
+          echo " - ${{ env.GIT_COMMIT_AUTHOR }}"
+          echo " - ${{ env.GIT_COMMIT_AUTHOR_NAME }}"
+          echo " - ${{ env.GIT_COMMIT_AUTHOR_EMAIL }}"
+          echo "Get committer info"
+          echo " - ${{ env.GIT_COMMIT_COMMITTER }}"
+          echo " - ${{ env.GIT_COMMIT_COMMITTER_NAME }}"
+          echo " - ${{ env.GIT_COMMIT_COMMITTER_EMAIL }}"
+          echo "Get message info"
+          echo " - ${{ env.GIT_COMMIT_MESSAGE_SUBJECT }}"
+          echo " - ${{ env.GIT_COMMIT_MESSAGE_SUBJECT_SANITIZED }}"
+          echo " - ${{ env.GIT_COMMIT_MESSAGE_BODY }}"
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
