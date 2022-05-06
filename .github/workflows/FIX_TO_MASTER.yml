@@ -1,7 +1,10 @@
 name: COMMENT_DEVELOP_FIX
 on:
-  pull_request:
-    types: [opened, reopened]
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - reopened
 permissions:
   pull-requests: write
 jobs:
@@ -16,4 +19,3 @@ jobs:
           issue-number: ${{ github.event.number }}
           body: |
             A new PR was created!
-          reactions: '+1'
