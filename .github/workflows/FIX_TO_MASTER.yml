@@ -18,8 +18,8 @@ jobs:
           then
             echo "Fix commit detected - continue to post comment"
           else
-            echo "No fix commit detected - succesful exit"
-            exit 0
+            echo "No fix commit detected - exit"
+            exit 1
           fi
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
