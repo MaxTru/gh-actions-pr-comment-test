@@ -1,15 +1,12 @@
 name: COMMENT_DEVELOP_FIX
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
   pull_request_target:
+      branches:
+        - develop
 permissions:
   pull-requests: write
 jobs:
   comment-on-fix-to-develop:
-    if: ${{ github.base_ref == 'develop' }}
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
