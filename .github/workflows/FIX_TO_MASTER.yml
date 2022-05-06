@@ -17,4 +17,6 @@ jobs:
         with:
           issue-number: ${{ github.event.number }}
           body: |
-            A new PR was created!
+            This Pull Request targets `develop` branch, but contains `fix` commits.
+
+            Consider targeting `master` instead.
