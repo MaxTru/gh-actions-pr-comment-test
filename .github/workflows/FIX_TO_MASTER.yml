@@ -6,6 +6,7 @@ permissions:
   pull-requests: write
 jobs:
   check-target-branch:
+    if: ${{ github.base_ref == 'develop' }}
     runs-on: ubuntu-latest
     steps:
       - name: Create comment
