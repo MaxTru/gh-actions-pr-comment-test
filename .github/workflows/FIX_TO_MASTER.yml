@@ -8,10 +8,10 @@ jobs:
   comment-on-fix-to-develop:
     runs-on: ubuntu-latest
     steps:
-      - name: Print commits
-        run: echo "The commit messages are ${{ github.event.number }} ${{ github.event.commits }}"
-      - name: Print head commit
-        run: echo "The head commit message is ${{ github.event.head_commit.message }}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ github.event.pull_request.commits_url }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
