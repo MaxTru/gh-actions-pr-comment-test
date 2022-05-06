@@ -21,7 +21,7 @@ jobs:
             echo "{FIX_COMMITS_PRESENT}={false}" >> $GITHUB_ENV
           fi
       - name: Create comment
-        if: $FIX_COMMITS_PRESENT == 'true'
+        if: env.FIX_COMMITS_PRESENT == 'true'
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.number }}
