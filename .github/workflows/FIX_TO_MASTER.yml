@@ -2,6 +2,8 @@ name: FIX_TO_MASTER
 on:
   pull_request:
     types: [opened, reopened]
+permissions:
+  pull-requests: write
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -9,7 +11,6 @@ jobs:
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v2
         with:
-          token: ${{ github.token }}
           issue-number: ${{ github.event.number }}
           body: |
             A new PR was created!
